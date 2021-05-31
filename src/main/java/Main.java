@@ -37,12 +37,12 @@ public class Main {
         writeString(jsonXml, "data2.json");
         //3 task
         String json2 = readString("data1.json");
-        List<Employee> list3 = jsonToList(json);
+        List<Employee> list3 = jsonToList(json2);
         System.out.println(list3);
 
     }
 
-    private static List<Employee> jsonToList(String json) {
+    static List<Employee> jsonToList(String json) {
         List<Employee> staff = new ArrayList<>();
         JSONParser parser = new JSONParser();
         GsonBuilder builder = new GsonBuilder();
@@ -60,8 +60,8 @@ public class Main {
         return staff;
     }
 
-    private static String readString(String s) {
-        String result = null;
+    static String readString(String s) {
+        String result = "";
         try {
             BufferedReader reader = new BufferedReader(new FileReader(s));
             while (reader.ready()) {
@@ -74,7 +74,7 @@ public class Main {
         return result;
     }
 
-    private static List<Employee> parseXML(String s) {
+    static List<Employee> parseXML(String s) {
         List<Employee> staff = new ArrayList<>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
